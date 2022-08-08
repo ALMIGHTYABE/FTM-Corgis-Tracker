@@ -47,10 +47,10 @@ placeholder = st.empty()
 
 # dataframe filter
 df = df[df["address"].isin(address_filter)]
-print(df)
+
 
 # calculate tickets
-
+print(df)
 
 
 # Empty Placeholder Filled
