@@ -1,0 +1,7 @@
+scrape:
+  sheets_url: https://docs.google.com/spreadsheets/d/1KMbi6Ywf0tAzmhlBSlDQ4ygs9AOOFF4wVp7kk7OvxyU/export?format=csv&gid=495548921
+  address: https://api.paintswap.finance/nft/0x250c1271bd7c99c6570529f1f2571d455e49793d/{}?numToFetch=50&getUri=false
+  metadata: https://api.paintswap.finance/v2/metadata/0x250c1271bd7c99c6570529f1f2571d455e49793d/{}
+
+main:
+  data-source: https://raw.githubusercontent.com/ALMIGHTYABE/Pixel-Pirate-Tracker/main/ppmain.csv
