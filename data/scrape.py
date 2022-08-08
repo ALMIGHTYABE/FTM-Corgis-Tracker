@@ -43,6 +43,6 @@ except Exception as e:
 
 # Save to CSV
 try:
-    corgis_df.to_csv("corgis.csv", index=False)
+    corgis_df.to_csv("data/corgis.csv", index=False)
 except Exception as e:
     error = {"error": e}
