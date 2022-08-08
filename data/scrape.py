@@ -3,7 +3,7 @@ import yaml
 import requests
 import pandas as pd
 
-params_path = "../params.yaml"
+params_path = "./params.yaml"
 
 
 def read_params(config_path):
