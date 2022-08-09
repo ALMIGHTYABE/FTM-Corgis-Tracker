@@ -5,3 +5,4 @@ scrape:
 
 main:
   data-source: https://raw.githubusercontent.com/ALMIGHTYABE/FTM-Corgis-Tracker/main/data/corgis.csv
+  ticket-data: https://raw.githubusercontent.com/ALMIGHTYABE/FTM-Corgis-Tracker/main/data/Tickets%20Address%20Wise.csv

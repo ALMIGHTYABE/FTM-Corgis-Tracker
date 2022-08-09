@@ -3,6 +3,7 @@ import time
 import pandas as pd  # read csv, df manipulation
 import streamlit as st  # data web app development
 import yaml
+import plotly.express as px # interactive charts
 
 # App
 st.set_page_config(
@@ -30,13 +31,15 @@ config = read_params(params_path)
 
 # Read Data
 dataset_url = config["main"]["data-source"]
+ticket_url = config["main"]["ticket-data"]
 
 
-def get_data() -> pd.DataFrame:
-    return pd.read_csv(dataset_url)
+def get_data(url) -> pd.DataFrame:
+    return pd.read_csv(url)
 
 
-df = get_data()
+df = get_data(dataset_url)
+tickets = get_data(ticket_url)
 
 # Top-Level Filters
 address_filter = st.multiselect("Select your address", pd.unique(df["address"]))
@@ -50,8 +53,14 @@ df = df[df["address"].isin(address_filter)]
 
 
 # calculate tickets
-print(df)
+no_of_tickets = tickets[tickets["address"].isin(address_filter)]
 
+# chart data
+tickets_isin_filter = tickets[tickets["address"].isin(address_filter)]["tickets"].sum()
+tickets_notin_filter = tickets[~tickets["address"].isin(address_filter)]["tickets"].sum()
+fig_data = pd.DataFrame(columns=["Particulars", "Tickets"])
+fig_data.loc[len(fig_data)] = ["You", tickets_isin_filter]
+fig_data.loc[len(fig_data)] = ["Others", tickets_notin_filter]
 
 # Empty Placeholder Filled
 with placeholder.container():
@@ -61,6 +70,14 @@ with placeholder.container():
 
         # Image
         st.image(df["image"].tolist(), caption=[i for i in df["name"]])  # Images
+
+        # Raffle Tickets
+        st.markdown("### Number of Tickets: {}".format(str(no_of_tickets["tickets"].sum())))
+
+        # Chart
+        fig = px.pie(fig_data, values="Tickets", names="Particulars", title="Tickets held vs Total")
+        fig.update_layout(showlegend=False)
+        st.plotly_chart(fig)
 
 
     time.sleep(1)
