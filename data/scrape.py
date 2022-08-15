@@ -110,5 +110,10 @@ try:
     tickets_df = tickets_df.sort_values(by="tickets", ascending=False)
     tickets_df.to_csv("data/Tickets Address Wise.csv", index=False)
 
+    address_df = tickets_df.set_index(keys = "address")
+    address_df = address_df.squeeze()
+    address_df = pd.Series(np.repeat(address_df.index, address_df))
+    address_df.to_csv("data/Address List.csv", index=False)
+
 except Exception as e:
     error = {"error": e}
