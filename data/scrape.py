@@ -30,14 +30,14 @@ try:
 
     corgis_df['address'] = addy_list  # Appending address to DF
 
-    thumb_list = []
+    image_list = []
     for i in corgis_df["token"]:
         nft = requests.get(metadata.format(i))
         # Status Code Check
         if nft.status_code == 200:
-            thumb_list.append(nft.json()['thumbnail'])
+            image_list.append(nft.json()['image'])
 
-    corgis_df['image'] = thumb_list  # Appending image to DF
+    corgis_df['image'] = image_list  # Appending image to DF
 
 except Exception as e:
     error = {"error": e}
