@@ -69,7 +69,7 @@ with placeholder.container():
         st.markdown("### Number of FTM Corgis: {}".format(str(df.shape[0])))
 
         # Image
-        st.image(df["image"].tolist(), caption=[i for i in df["name"]])  # Images
+        st.image(df["image"].tolist(), caption=[i for i in df["name"]], width=150)  # Images
 
         # Raffle Tickets
         st.markdown("### Number of Tickets: {}".format(str(no_of_tickets["tickets"].sum())))
