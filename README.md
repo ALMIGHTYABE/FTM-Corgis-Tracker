@@ -7,4 +7,4 @@ A FTM Corgis Dashboard that updates information frequently using Streamlit as th
 - View NFTs you hold
 - View Raffe Tickets you hold
 
-Web-App Link: [https://ftm-corgis-tracker.herokuapp.com/](https://ftm-corgis-tracker.herokuapp.com/)
+Web-App Link: [https://corgis.streamlit.app/](https://corgis.streamlit.app/)
