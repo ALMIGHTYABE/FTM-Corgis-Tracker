@@ -39,11 +39,7 @@ try:
 
     corgis_df['image'] = image_list  # Appending image to DF
 
-except Exception as e:
-    error = {"error": e}
-
 # Save to CSV
-try:
     corgis_df.to_csv("data/corgis.csv", index=False)
 except Exception as e:
     error = {"error": e}
